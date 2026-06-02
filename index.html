@@ -10,18 +10,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#0a0a0b;
-    --bg-soft:#111114;
-    --surface:#16161a;
-    --surface-2:#1d1d22;
-    --line:rgba(255,255,255,.08);
-    --line-strong:rgba(255,255,255,.16);
-    --text:#f3f3f4;
-    --muted:#9a9aa3;
-    --faint:#67676f;
-    --accent:#ff5a1f;       /* KRAFTON-ish vivid orange */
-    --accent-2:#ffb01f;
-    --accent-soft:rgba(255,90,31,.14);
+    --bg:#000000;           /* KRAFTON Black */
+    --bg-soft:#0c0c0c;
+    --surface:#141414;
+    --surface-2:#1c1c1c;
+    --line:rgba(255,255,255,.09);
+    --line-strong:rgba(255,255,255,.18);
+    --text:#ffffff;         /* KRAFTON White */
+    --muted:#a1a1a1;
+    --faint:#6b6b6b;
+    --accent:#f9423a;       /* KRAFTON Orange (Warm Red C) */
+    --accent-2:#ff7166;     /* lighter tint for highlights / gradients */
+    --accent-soft:rgba(249,66,58,.14);
     --radius:18px;
     --maxw:1080px;
     --font:"Inter","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -54,8 +54,8 @@
     position:fixed;z-index:0;pointer-events:none;border-radius:50%;
     filter:blur(90px);opacity:.5;
   }
-  .glow.a{top:-160px;right:-120px;width:480px;height:480px;background:radial-gradient(circle,rgba(255,90,31,.55),transparent 70%)}
-  .glow.b{top:420px;left:-180px;width:520px;height:520px;background:radial-gradient(circle,rgba(255,176,31,.28),transparent 70%)}
+  .glow.a{top:-160px;right:-120px;width:480px;height:480px;background:radial-gradient(circle,rgba(249,66,58,.5),transparent 70%)}
+  .glow.b{top:420px;left:-180px;width:520px;height:520px;background:radial-gradient(circle,rgba(249,66,58,.22),transparent 70%)}
 
   .wrap{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
@@ -212,6 +212,33 @@
   .place-card .pc-go svg{width:13px;height:13px;transition:.2s}
   .place-card:hover .pc-go svg{transform:translateX(3px)}
 
+  /* ---------- Post-mortem ---------- */
+  :root{--good:#35d28a;--good-soft:rgba(53,210,138,.13);--warn:#ff6b45;--warn-soft:rgba(255,107,69,.13)}
+  .pm-group{margin-bottom:30px}
+  .pm-grouptitle{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;color:var(--text)}
+  .pm-grouptitle .gdot{width:11px;height:11px;border-radius:50%}
+  .pm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:720px){.pm-grid{grid-template-columns:1fr}}
+  .pm-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px;transition:.2s}
+  .pm-card:hover{border-color:var(--line-strong);background:var(--surface-2)}
+  .pm-card h4{display:flex;align-items:center;gap:9px;font-size:15.5px;font-weight:800;margin-bottom:14px}
+  .pm-card h4 .cdot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+  .pm-card ul{list-style:none;display:grid;gap:0}
+  .pm-card li{display:flex;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.55;padding:11px 0;border-top:1px solid var(--line)}
+  .pm-card li:first-child{border-top:none;padding-top:0}
+  .pm-card li:last-child{padding-bottom:0}
+  .pm-card li::before{content:"";flex:0 0 auto;width:5px;height:5px;border-radius:50%;margin-top:7px}
+  .pm-card li b{color:var(--text);font-weight:700}
+  .pm-grid.good .cdot,.pm-grid.good li::before{background:var(--good)}
+  .pm-grid.warn .cdot,.pm-grid.warn li::before{background:var(--warn)}
+
+  .bgquote{margin-top:30px;border:1px solid var(--line);border-left:3px solid var(--good);border-radius:16px;background:linear-gradient(180deg,var(--good-soft),transparent 65%);padding:24px 26px}
+  .bgquote .qhead{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--good);margin-bottom:14px}
+  .bgquote .q{font-size:clamp(15px,2.2vw,18px);line-height:1.75;font-style:italic;font-weight:600;color:var(--text)}
+  .bgquote .by{margin-top:14px;color:var(--muted);font-size:13.5px;font-weight:700}
+  .bgquote .extra{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.8}
+  .bgquote .extra b{color:var(--text)}
+
   /* ---------- Info / stay ---------- */
   .stay{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:center}
   @media(max-width:760px){.stay{grid-template-columns:1fr}}
@@ -219,8 +246,8 @@
     border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
     aspect-ratio:16/11;position:relative;
     background:
-      radial-gradient(circle at 30% 30%,rgba(255,176,31,.15),transparent 60%),
-      linear-gradient(135deg,#2a2218,#15130f);
+      radial-gradient(circle at 30% 30%,rgba(249,66,58,.16),transparent 60%),
+      linear-gradient(135deg,#221412,#121011);
     display:grid;place-items:center;
   }
   .stay .ph .hanok{font-size:54px;filter:drop-shadow(0 6px 18px rgba(0,0,0,.5))}
@@ -253,6 +280,7 @@
       <a href="#day1">Day 1</a>
       <a href="#day2">Day 2</a>
       <a href="#stay">숙소</a>
+      <a href="#postmortem">2025 회고</a>
     </div>
   </div>
 </nav>
@@ -361,7 +389,7 @@
       <div class="tl-item">
         <div class="tl-time"><div class="t">18:00</div></div>
         <div class="card">
-          <div class="title"><span class="tag" style="background:rgba(255,176,31,.16);color:var(--accent-2)">핵심</span> 저녁 &amp; KDCW 2026 프로그램 논의</div>
+          <div class="title"><span class="tag" style="background:rgba(249,66,58,.16);color:var(--accent-2)">핵심</span> 저녁 &amp; KDCW 2026 프로그램 논의</div>
           <div class="note">소영님 보고용 PPT를 업데이트하며 <b style="color:var(--text)">KDCW 2026</b>의 방향성을 점검하고, 세부 프로그램들을 함께 아이디에이션 합니다.</div>
           <div class="meta-row">
             <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg> 장소: 숙소 내부 회의용 테이블</span>
@@ -384,7 +412,7 @@
       <div class="tl-item">
         <div class="tl-time"><div class="t small">저녁<br/>식사 후</div></div>
         <div class="card">
-          <div class="title"><span class="tag" style="background:rgba(255,176,31,.16);color:var(--accent-2)">회고</span> KDC Week 회고 &amp; 2026 방향 토론 <span style="color:var(--muted);font-weight:600;font-size:13px">· 90분~2시간</span></div>
+          <div class="title"><span class="tag" style="background:rgba(249,66,58,.16);color:var(--accent-2)">회고</span> KDC Week 회고 &amp; 2026 방향 토론 <span style="color:var(--muted);font-weight:600;font-size:13px">· 90분~2시간</span></div>
           <div class="ideabox">
             <h4>🧷 진행 방식</h4>
             <ol>
@@ -480,6 +508,121 @@
           네이버 지도에서 보기
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- POST-MORTEM -->
+  <section id="postmortem" class="reveal">
+    <div class="sec-head">
+      <div>
+        <span class="kicker">KDCW 2025 Post-mortem</span>
+        <h2>KDCW 2025 포스트모템 요약</h2>
+      </div>
+      <p>작년 행사에서 잘된 점과 아쉬운 점. 올해 KDC Week 방향 논의의 출발점입니다.</p>
+    </div>
+
+    <!-- GOOD -->
+    <div class="pm-group">
+      <div class="pm-grouptitle"><span class="gdot" style="background:var(--good);box-shadow:0 0 12px var(--good)"></span>잘된 것 · GOOD</div>
+      <div class="pm-grid good">
+
+        <div class="pm-card">
+          <h4><span class="cdot"></span>콘텐츠 &amp; 연사</h4>
+          <ul>
+            <li>Tynan Sylvester처럼 <b>인간적 서사와 크리에이티브가 뚜렷한 연사</b>를 키노트로 모시는 것이 큰 호응</li>
+            <li>A/B 트랙 분리로 청중 선택지 확대 + 다양한 동시 프로그램 운영</li>
+            <li>온라인 송출 없앤 것 → 현장 네트워킹 활성화, VOD 수요 증가</li>
+            <li>GDC 세션 연계 (Balatro, Tencent) — 글로벌 인연의 자산화</li>
+          </ul>
+        </div>
+
+        <div class="pm-card">
+          <h4><span class="cdot"></span>현장 &amp; 공간</h4>
+          <ul>
+            <li>펍지 성수 공간 — “힙하다”, “다른 컨퍼런스와 다르다”는 반응</li>
+            <li>세션 후 야외 의자 배치로 자연스러운 교류 공간 형성</li>
+            <li>Meet the Speakers, 교류 프로그램 취지 긍정적 — 실제 참여율 높음</li>
+            <li>KDC Club 연회 — 전체 클럽 결집 &amp; 유대감 강화</li>
+          </ul>
+        </div>
+
+        <div class="pm-card">
+          <h4><span class="cdot"></span>운영 &amp; 시스템</h4>
+          <ul>
+            <li>토큰 헌트 + 현장 설문 결합 → 설문 참여율 높음</li>
+            <li>SM C&amp;C 연계로 해외 연사 항공·숙박 수월하게 처리</li>
+            <li>인정휴가 도입 — 실제 이용률 높고 긍정 반응</li>
+            <li>브랜드 협업 굿즈 (어패럴) — 모두가 갖고 싶어하는 아이템으로</li>
+          </ul>
+        </div>
+
+        <div class="pm-card">
+          <h4><span class="cdot"></span>네트워킹 &amp; 구성원 반응</h4>
+          <ul>
+            <li>네트워킹 니즈 매우 높음 — 교류에 대한 진정성에 공감</li>
+            <li>Game Play Zone 참여 (<b>1일 652명 / 2일 858명</b>)</li>
+            <li>매칭그랜트 QR 도입으로 기부 인원 증가</li>
+            <li>“GDC에 견줄 만하다”, “자랑스럽다” 등 사내 자부심 확인</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- NEEDS IMPROVEMENT -->
+    <div class="pm-group">
+      <div class="pm-grouptitle"><span class="gdot" style="background:var(--warn);box-shadow:0 0 12px var(--warn)"></span>아쉬운 것 · NEEDS IMPROVEMENT</div>
+      <div class="pm-grid warn">
+
+        <div class="pm-card">
+          <h4><span class="cdot"></span>공간 &amp; 시설</h4>
+          <ul>
+            <li>Bootcamp 협소 — 시야각 문제, 통역부스로 공간 압축, 층고 낮음</li>
+            <li>연사 대기실 혼잡 — 동시간대 몰림, 프라이빗 공간 부족</li>
+            <li>9월 초 날씨 더위 — 야외 행사 한계, <b>9월 중순~10월로 이동 검토 필요</b></li>
+            <li>와이파이 불안정 — 펍지 성수와 개선 협의 필요</li>
+          </ul>
+        </div>
+
+        <div class="pm-card">
+          <h4><span class="cdot"></span>운영 &amp; 시스템</h4>
+          <ul>
+            <li>신청·취소 자동화 시스템 부재 — 수동 운영으로 과부하</li>
+            <li>발표 자료 최신화 관리 일원화 필요 — 담당 POC 총책임자 지정 필수</li>
+            <li>B홀 QR 오작동, 통역기 이슈 — 사전 전수 점검 필요</li>
+            <li>모든 포맷의 사전 런스루 없이 행사 진행 — Tim 줌 링크 당일 오류 등</li>
+          </ul>
+        </div>
+
+        <div class="pm-card">
+          <h4><span class="cdot"></span>콘텐츠 &amp; 연사 관리</h4>
+          <ul>
+            <li>Kuku FM 세션 — 홍보성 위주, 인사이트 부족 → 아젠다 사전 검토 필수</li>
+            <li>해외 연사 새벽 도착 시 얼리 체크인/추가 1박 미지원 → 새벽 민원 발생</li>
+            <li>타이난 Meet the Speakers 불참 — 키노트급은 필참 요청 필요</li>
+            <li>A·B홀 통합 세션 시 통역 2팀 미배정 → 품질 저하</li>
+          </ul>
+        </div>
+
+        <div class="pm-card">
+          <h4><span class="cdot"></span>교류 &amp; 저녁 프로그램</h4>
+          <ul>
+            <li>오케스트라 — 공간 제약 + 최소 인원 미달로 퀄리티 아쉬움, 비용 대비 효과 재검토</li>
+            <li>저녁 식사와 Meet the Speakers 세팅 타임 미스매치 — 이미 식사 후 도착</li>
+            <li>라운드테이블 순차통역 — 대화 흐름 끊김, 동시통역 시스템 이슈</li>
+            <li>저녁 프로그램 이동 전 대화 중 사람들이 이탈 — 대단한 프로그램보다 자연스러운 대화 선호</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BG comment -->
+    <div class="bgquote">
+      <div class="qhead">💬 BG님 현장 코멘트</div>
+      <div class="q">“발표도 중요하지만 네트워킹도 중요한데, 세션 시간을 줄이고 breaktime을 늘려 교류가 가능하게 한 것이 좋은 선택이었다. 그래, 그렇게 해야죠. 그게 교류죠.”</div>
+      <div class="by">— BG님, KDCW 2025 현장 방문 중 (오후 4:30~5:00)</div>
+      <div class="extra"><b>추가 피드백</b> · 내부 참여 비중(48%) 확대 필요 / 비용 및 참여자 수치 리포트 요청 / 공간 덕분에 행사 가능했다고 긍정 평가 / KDC가 굉장히 중요해 일정 중 꼭 방문하고 싶었다고 언급</div>
     </div>
   </section>
 

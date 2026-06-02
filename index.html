@@ -158,8 +158,12 @@
     font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
     padding:3px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent-2);
   }
-  .place{display:inline-flex;align-items:center;gap:6px;color:var(--accent-2);font-weight:700;font-size:14px;margin-top:8px}
+  .place{display:inline-flex;align-items:center;gap:6px;color:var(--accent-2);font-weight:700;font-size:14px;margin-top:8px;transition:.18s}
   .place svg{width:15px;height:15px}
+  a.place{padding:6px 12px 6px 10px;border-radius:999px;border:1px solid var(--line-strong);background:var(--bg-soft)}
+  a.place .ext{width:13px;height:13px;opacity:.55;margin-left:1px;transition:.18s}
+  a.place:hover{color:#0a0a0b;background:var(--accent-2);border-color:var(--accent-2)}
+  a.place:hover .ext{opacity:1;transform:translate(2px,-2px)}
   .card .note{color:var(--muted);font-size:14px;margin-top:12px}
   .card .note.muted{color:var(--faint);font-size:13px}
   .pill-link{
@@ -309,7 +313,7 @@
         <div class="tl-time"><div class="t">12:00</div></div>
         <div class="card">
           <div class="title"><span class="tag">점심</span> 점심식사</div>
-          <div class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> 까델루뽀</div>
+          <a class="place" href="https://map.naver.com/p/search/%EA%B9%8C%EB%8D%B8%EB%A3%A8%EB%BD%80" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> 까델루뽀 <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
         </div>
       </div>
 
@@ -332,7 +336,7 @@
         <div class="tl-time"><div class="t">14:00</div></div>
         <div class="card">
           <div class="title"><span class="tag">전시</span> 데미안 허스트 관람</div>
-          <div class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> 국립현대미술관 (MMCA)</div>
+          <a class="place" href="https://map.naver.com/p/search/%EA%B5%AD%EB%A6%BD%ED%98%84%EB%8C%80%EB%AF%B8%EC%88%A0%EA%B4%80%20%EC%84%9C%EC%9A%B8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> 국립현대미술관 (MMCA) <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
           <div class="meta-row">
             <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> 점심 장소에서 도보 20~30분</span>
             <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17h14M6 17l1-7h10l1 7M8 10V7a4 4 0 0 1 8 0v3"/></svg> 날씨 좋으면 도보 · 아니면 택시</span>
@@ -345,7 +349,7 @@
         <div class="tl-time"><div class="t">16:00<br/><span style="font-weight:600;color:var(--muted)">~18:00</span></div></div>
         <div class="card">
           <div class="title"><span class="tag">입실</span> Check-in &amp; 개인업무</div>
-          <div class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg> 더채 갤러리</div>
+          <a class="place" href="https://map.naver.com/p/search/%EB%8D%94%EC%B1%84%EA%B0%A4%EB%9F%AC%EB%A6%AC" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg> 더채 갤러리 <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
           <div class="meta-row">
             <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> 미술관에서 도보 약 27분</span>
             <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17h14M6 17l1-7h10l1 7"/></svg> 날씨에 따라 이동수단 변동 가능</span>
@@ -401,7 +405,7 @@
         <div class="tl-time"><div class="t small">~11:00</div></div>
         <div class="card">
           <div class="title"><span class="tag">퇴실</span> 개인일정 / 업무 &amp; Check-out</div>
-          <div class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg> 더채 갤러리</div>
+          <a class="place" href="https://map.naver.com/p/search/%EB%8D%94%EC%B1%84%EA%B0%A4%EB%9F%AC%EB%A6%AC" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg> 더채 갤러리 <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
         </div>
       </div>
 
@@ -455,6 +459,10 @@
           <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2 5 5 .5-4 3.5 1.5 5L12 19l-4.5 3 1.5-5-4-3.5 5-.5Z"/></svg> 한옥 스테이</span>
           <span class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg> Check-in 16:00 / out ~11:00</span>
         </div>
+        <a class="pill-link" href="https://map.naver.com/p/search/%EB%8D%94%EC%B1%84%EA%B0%A4%EB%9F%AC%EB%A6%AC" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          네이버 지도에서 보기
+        </a>
       </div>
     </div>
   </section>

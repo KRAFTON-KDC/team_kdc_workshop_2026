@@ -212,22 +212,6 @@
   .place-card .pc-go svg{width:13px;height:13px;transition:.2s}
   .place-card:hover .pc-go svg{transform:translateX(3px)}
 
-  /* ---------- Topic cards (discussion) ---------- */
-  .topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-  .topic-card{
-    position:relative;display:flex;flex-direction:column;gap:14px;
-    background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;transition:.2s;overflow:hidden;
-  }
-  .topic-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--accent),var(--accent-2))}
-  .topic-card:hover{border-color:var(--line-strong);transform:translateY(-3px);background:var(--surface-2)}
-  .topic-card .tc-q{font-weight:800;font-size:15.5px;line-height:1.45}
-  .topic-card .tc-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
-  .tc-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:6px 11px;border-radius:8px}
-  .tc-tag.format{background:var(--bg-soft);border:1px solid var(--line-strong);color:var(--muted)}
-  .tc-tag.format svg{width:13px;height:13px;color:var(--accent)}
-  .tc-tag.slot{background:var(--accent-soft);color:var(--accent-2)}
-  .tc-tag.slot svg{width:13px;height:13px}
-
   /* ---------- Info / stay ---------- */
   .stay{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:center}
   @media(max-width:760px){.stay{grid-template-columns:1fr}}
@@ -267,7 +251,6 @@
     <div class="navlinks">
       <a href="#overview">개요</a>
       <a href="#day1">Day 1</a>
-      <a href="#topics">토론 주제</a>
       <a href="#day2">Day 2</a>
       <a href="#stay">숙소</a>
     </div>
@@ -418,52 +401,6 @@
         <div class="tl-time"><div class="t">22:00</div></div>
         <div class="card" style="background:var(--bg-soft)">
           <div class="title">🌙 워크샵 1일차 종료</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- DISCUSSION TOPICS -->
-  <section id="topics" class="reveal">
-    <div class="sec-head">
-      <div>
-        <span class="kicker">Discussion Topics</span>
-        <h2>추천 토론 · 회고 주제</h2>
-      </div>
-      <p>저녁 후 회고와 다음 날 오전, 가볍게 꺼내볼 수 있는 팀 토론 주제들입니다.</p>
-    </div>
-    <div class="topic-grid">
-
-      <div class="topic-card">
-        <div class="tc-q">우리 팀이 올해 가장 잘하고 싶은 것 1가지</div>
-        <div class="tc-tags">
-          <span class="tc-tag format"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l19-9-9 19-2-8-8-2Z"/></svg> 각자 발표 후 투표</span>
-          <span class="tc-tag slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> 저녁 후</span>
-        </div>
-      </div>
-
-      <div class="topic-card">
-        <div class="tc-q">KDC 3개 프로그램 중 올해 가장 힘을 쏟을 곳은?</div>
-        <div class="tc-tags">
-          <span class="tc-tag format"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg> 토론</span>
-          <span class="tc-tag slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> 저녁 후</span>
-        </div>
-      </div>
-
-      <div class="topic-card">
-        <div class="tc-q">내가 요즘 가장 관심 있는 AI 도구 / 트렌드</div>
-        <div class="tc-tags">
-          <span class="tc-tag format"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a4 4 0 0 1 4 4 4 4 0 0 1 0 8 4 4 0 0 1-8 0 4 4 0 0 1 0-8 4 4 0 0 1 4-4Z"/><path d="M12 7v10"/></svg> 캐주얼 공유</span>
-          <span class="tc-tag slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> 6/5 오전</span>
-        </div>
-      </div>
-
-      <div class="topic-card">
-        <div class="tc-q">팀에서 없애고 싶은 불필요한 일</div>
-        <div class="tc-tags">
-          <span class="tc-tag format"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 12h6"/></svg> 익명 카드 작성</span>
-          <span class="tc-tag slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> 저녁 후</span>
         </div>
       </div>
 

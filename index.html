@@ -212,6 +212,22 @@
   .place-card .pc-go svg{width:13px;height:13px;transition:.2s}
   .place-card:hover .pc-go svg{transform:translateX(3px)}
 
+  /* ---------- Topic cards (discussion) ---------- */
+  .topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .topic-card{
+    position:relative;display:flex;flex-direction:column;gap:14px;
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;transition:.2s;overflow:hidden;
+  }
+  .topic-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--accent),var(--accent-2))}
+  .topic-card:hover{border-color:var(--line-strong);transform:translateY(-3px);background:var(--surface-2)}
+  .topic-card .tc-q{font-weight:800;font-size:15.5px;line-height:1.45}
+  .topic-card .tc-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+  .tc-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:6px 11px;border-radius:8px}
+  .tc-tag.format{background:var(--bg-soft);border:1px solid var(--line-strong);color:var(--muted)}
+  .tc-tag.format svg{width:13px;height:13px;color:var(--accent)}
+  .tc-tag.slot{background:var(--accent-soft);color:var(--accent-2)}
+  .tc-tag.slot svg{width:13px;height:13px}
+
   /* ---------- Info / stay ---------- */
   .stay{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:center}
   @media(max-width:760px){.stay{grid-template-columns:1fr}}
@@ -251,6 +267,7 @@
     <div class="navlinks">
       <a href="#overview">개요</a>
       <a href="#day1">Day 1</a>
+      <a href="#topics">토론 주제</a>
       <a href="#day2">Day 2</a>
       <a href="#stay">숙소</a>
     </div>
@@ -265,7 +282,7 @@
     <div class="hero-meta">
       <span class="chip">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        <b>1박 2일</b><span>· Day 1 → Day 2</span>
+        <b>6/4 – 6/5</b><span>· 1박 2일 (목–금)</span>
       </span>
       <span class="chip">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -303,7 +320,7 @@
     <div class="day-badge">
       <span class="num">1</span>
       <span class="lbl">Day 1</span>
-      <span class="sub">점심부터 늦은 밤까지 · 12:00 → 22:00</span>
+      <span class="sub">6/4 (목) · 12:00 → 22:00</span>
     </div>
 
     <div class="timeline">
@@ -380,6 +397,22 @@
         </div>
       </div>
 
+      <!-- after dinner: retro & discussion -->
+      <div class="tl-item">
+        <div class="tl-time"><div class="t small">저녁<br/>식사 후</div></div>
+        <div class="card">
+          <div class="title"><span class="tag" style="background:rgba(255,176,31,.16);color:var(--accent-2)">회고</span> KDC Week 회고 &amp; 2026 방향 토론 <span style="color:var(--muted);font-weight:600;font-size:13px">· 90분~2시간</span></div>
+          <div class="ideabox">
+            <h4>🧷 진행 방식</h4>
+            <ol>
+              <li>작년 KDC Week <b style="color:var(--text)">잘된 것 / 아쉬웠던 것</b> 각자 포스트잇 작성 후 공유.</li>
+              <li>올해 KDC Week에서 <b style="color:var(--text)">꼭 해보고 싶은 것</b> — 1인 1아이디어 피칭.</li>
+              <li>세션 트랙 구조나 <b style="color:var(--text)">AI 세션 방향</b>도 이 자리에서 가볍게 첫 논의.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
       <!-- 22:00 end -->
       <div class="tl-item">
         <div class="tl-time"><div class="t">22:00</div></div>
@@ -391,12 +424,58 @@
     </div>
   </section>
 
+  <!-- DISCUSSION TOPICS -->
+  <section id="topics" class="reveal">
+    <div class="sec-head">
+      <div>
+        <span class="kicker">Discussion Topics</span>
+        <h2>추천 토론 · 회고 주제</h2>
+      </div>
+      <p>저녁 후 회고와 다음 날 오전, 가볍게 꺼내볼 수 있는 팀 토론 주제들입니다.</p>
+    </div>
+    <div class="topic-grid">
+
+      <div class="topic-card">
+        <div class="tc-q">우리 팀이 올해 가장 잘하고 싶은 것 1가지</div>
+        <div class="tc-tags">
+          <span class="tc-tag format"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l19-9-9 19-2-8-8-2Z"/></svg> 각자 발표 후 투표</span>
+          <span class="tc-tag slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> 저녁 후</span>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="tc-q">KDC 3개 프로그램 중 올해 가장 힘을 쏟을 곳은?</div>
+        <div class="tc-tags">
+          <span class="tc-tag format"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg> 토론</span>
+          <span class="tc-tag slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> 저녁 후</span>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="tc-q">내가 요즘 가장 관심 있는 AI 도구 / 트렌드</div>
+        <div class="tc-tags">
+          <span class="tc-tag format"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a4 4 0 0 1 4 4 4 4 0 0 1 0 8 4 4 0 0 1-8 0 4 4 0 0 1 0-8 4 4 0 0 1 4-4Z"/><path d="M12 7v10"/></svg> 캐주얼 공유</span>
+          <span class="tc-tag slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> 6/5 오전</span>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="tc-q">팀에서 없애고 싶은 불필요한 일</div>
+        <div class="tc-tags">
+          <span class="tc-tag format"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 12h6"/></svg> 익명 카드 작성</span>
+          <span class="tc-tag slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> 저녁 후</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- DAY 2 -->
   <section id="day2" class="reveal">
     <div class="day-badge">
       <span class="num">2</span>
       <span class="lbl">Day 2</span>
-      <span class="sub">여유로운 마무리 · ~12:00</span>
+      <span class="sub">6/5 (금) · 여유로운 마무리 ~12:00</span>
     </div>
 
     <div class="timeline">
